@@ -95,6 +95,7 @@ Partial Class Form5
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "1"
+        DataGridViewCellStyle2.Format = "s"
         DataGridViewCellStyle2.NullValue = Nothing
         Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn1.HeaderText = "1"
@@ -111,7 +112,6 @@ Partial Class Form5
         'TaktDataGridViewTextBoxColumn
         '
         Me.TaktDataGridViewTextBoxColumn.DataPropertyName = "takt"
-        DataGridViewCellStyle3.Format = "T"
         DataGridViewCellStyle3.NullValue = Nothing
         Me.TaktDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.TaktDataGridViewTextBoxColumn.HeaderText = "Время"

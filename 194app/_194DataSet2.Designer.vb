@@ -385,7 +385,7 @@ Partial Public Class _194DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddprostoyRow(ByVal _1 As String, ByVal _2 As Integer, ByVal takt As Date) As prostoyRow
+        Public Overloads Function AddprostoyRow(ByVal _1 As String, ByVal _2 As Integer, ByVal takt As Decimal) As prostoyRow
             Dim rowprostoyRow As prostoyRow = CType(Me.NewRow,prostoyRow)
             Dim columnValuesArray() As Object = New Object() {_1, _2, takt}
             rowprostoyRow.ItemArray = columnValuesArray
@@ -426,7 +426,7 @@ Partial Public Class _194DataSet2
             Me.column2.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "column2")
             Me.column2.ExtendedProperties.Add("Generator_UserColumnName", "2")
             MyBase.Columns.Add(Me.column2)
-            Me.columntakt = New Global.System.Data.DataColumn("takt", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columntakt = New Global.System.Data.DataColumn("takt", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntakt)
             Me.column1.MaxLength = 20
             Me.columntakt.ReadOnly = true
@@ -606,10 +606,10 @@ Partial Public Class _194DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property takt() As Date
+        Public Property takt() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableprostoy.taktColumn),Date)
+                    Return CType(Me(Me.tableprostoy.taktColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("Значение для столбца 'takt' в таблице 'prostoy' равно DBNull.", e)
                 End Try
@@ -832,7 +832,7 @@ Namespace _194DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.WindowsApplication3.My.MySettings.Default._194ConnectionString
+            Me._connection.ConnectionString = Global.WindowsApplication3.My.MySettings.Default._194ConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

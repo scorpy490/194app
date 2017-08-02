@@ -63,6 +63,17 @@ Namespace My
                 Return CType(Me("_194ConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SRV-OTK;Initial Catalog=194;Integrated Security=True;Encrypt=False;Tr"& _ 
+            "ustServerCertificate=True")>  _
+        Public ReadOnly Property _194ConnectionString1() As String
+            Get
+                Return CType(Me("_194ConnectionString1"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

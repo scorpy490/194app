@@ -241,6 +241,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_194DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_194DataSet2.vb">
+      <DependentUpon>_194DataSet2.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox1.resx">

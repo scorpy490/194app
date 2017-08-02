@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DataSet1
     Inherits Global.System.Data.DataSet
     
-    Private tableTakts As TaktsDataTable
+    Private tableoper As operDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet1
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Takts")) Is Nothing) Then
-                MyBase.Tables.Add(New TaktsDataTable(ds.Tables("Takts")))
+            If (Not (ds.Tables("oper")) Is Nothing) Then
+                MyBase.Tables.Add(New operDataTable(ds.Tables("oper")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet1
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Takts() As TaktsDataTable
+    Public ReadOnly Property oper() As operDataTable
         Get
-            Return Me.tableTakts
+            Return Me.tableoper
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DataSet1
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Takts")) Is Nothing) Then
-                MyBase.Tables.Add(New TaktsDataTable(ds.Tables("Takts")))
+            If (Not (ds.Tables("oper")) Is Nothing) Then
+                MyBase.Tables.Add(New operDataTable(ds.Tables("oper")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet1
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableTakts = CType(MyBase.Tables("Takts"),TaktsDataTable)
+        Me.tableoper = CType(MyBase.Tables("oper"),operDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableTakts) Is Nothing) Then
-                Me.tableTakts.InitVars
+            If (Not (Me.tableoper) Is Nothing) Then
+                Me.tableoper.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DataSet1
         Me.Namespace = "http://tempuri.org/DataSet1.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableTakts = New TaktsDataTable()
-        MyBase.Tables.Add(Me.tableTakts)
+        Me.tableoper = New operDataTable()
+        MyBase.Tables.Add(Me.tableoper)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeTakts() As Boolean
+    Private Function ShouldSerializeoper() As Boolean
         Return false
     End Function
     
@@ -273,29 +273,27 @@ Partial Public Class DataSet1
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub TaktsRowChangeEventHandler(ByVal sender As Object, ByVal e As TaktsRowChangeEvent)
+    Public Delegate Sub operRowChangeEventHandler(ByVal sender As Object, ByVal e As operRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class TaktsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of TaktsRow)
+    Partial Public Class operDataTable
+        Inherits Global.System.Data.TypedTableBase(Of operRow)
         
-        Private columnID As Global.System.Data.DataColumn
+        Private columnorerat As Global.System.Data.DataColumn
         
         Private columndatetime As Global.System.Data.DataColumn
         
-        Private columnt As Global.System.Data.DataColumn
-        
-        Private columnoperat As Global.System.Data.DataColumn
+        Private columntakt As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Takts"
+            Me.TableName = "oper"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -328,9 +326,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property oreratColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnID
+                Return Me.columnorerat
             End Get
         End Property
         
@@ -344,17 +342,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property tColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property taktColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnt
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property operatColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnoperat
+                Return Me.columntakt
             End Get
         End Property
         
@@ -369,44 +359,44 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As TaktsRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As operRow
             Get
-                Return CType(Me.Rows(index),TaktsRow)
+                Return CType(Me.Rows(index),operRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event TaktsRowChanging As TaktsRowChangeEventHandler
+        Public Event operRowChanging As operRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event TaktsRowChanged As TaktsRowChangeEventHandler
+        Public Event operRowChanged As operRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event TaktsRowDeleting As TaktsRowChangeEventHandler
+        Public Event operRowDeleting As operRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event TaktsRowDeleted As TaktsRowChangeEventHandler
+        Public Event operRowDeleted As operRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddTaktsRow(ByVal row As TaktsRow)
+        Public Overloads Sub AddoperRow(ByVal row As operRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddTaktsRow(ByVal datetime As Date, ByVal t As Integer, ByVal operat As String) As TaktsRow
-            Dim rowTaktsRow As TaktsRow = CType(Me.NewRow,TaktsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, datetime, t, operat}
-            rowTaktsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowTaktsRow)
-            Return rowTaktsRow
+        Public Overloads Function AddoperRow(ByVal orerat As String, ByVal datetime As Date, ByVal takt As Integer) As operRow
+            Dim rowoperRow As operRow = CType(Me.NewRow,operRow)
+            Dim columnValuesArray() As Object = New Object() {orerat, datetime, takt}
+            rowoperRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowoperRow)
+            Return rowoperRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As TaktsDataTable = CType(MyBase.Clone,TaktsDataTable)
+            Dim cln As operDataTable = CType(MyBase.Clone,operDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -414,61 +404,53 @@ Partial Public Class DataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New TaktsDataTable()
+            Return New operDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
+            Me.columnorerat = MyBase.Columns("orerat")
             Me.columndatetime = MyBase.Columns("datetime")
-            Me.columnt = MyBase.Columns("t")
-            Me.columnoperat = MyBase.Columns("operat")
+            Me.columntakt = MyBase.Columns("takt")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
+            Me.columnorerat = New Global.System.Data.DataColumn("orerat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnorerat)
             Me.columndatetime = New Global.System.Data.DataColumn("datetime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndatetime)
-            Me.columnt = New Global.System.Data.DataColumn("t", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnt)
-            Me.columnoperat = New Global.System.Data.DataColumn("operat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnoperat)
-            Me.columnID.AutoIncrement = true
-            Me.columnID.AutoIncrementSeed = -1
-            Me.columnID.AutoIncrementStep = -1
-            Me.columnID.AllowDBNull = false
-            Me.columnID.ReadOnly = true
-            Me.columnoperat.MaxLength = 50
+            Me.columntakt = New Global.System.Data.DataColumn("takt", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntakt)
+            Me.columnorerat.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewTaktsRow() As TaktsRow
-            Return CType(Me.NewRow,TaktsRow)
+        Public Function NewoperRow() As operRow
+            Return CType(Me.NewRow,operRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New TaktsRow(builder)
+            Return New operRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(TaktsRow)
+            Return GetType(operRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.TaktsRowChangedEvent) Is Nothing) Then
-                RaiseEvent TaktsRowChanged(Me, New TaktsRowChangeEvent(CType(e.Row,TaktsRow), e.Action))
+            If (Not (Me.operRowChangedEvent) Is Nothing) Then
+                RaiseEvent operRowChanged(Me, New operRowChangeEvent(CType(e.Row,operRow), e.Action))
             End If
         End Sub
         
@@ -476,8 +458,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.TaktsRowChangingEvent) Is Nothing) Then
-                RaiseEvent TaktsRowChanging(Me, New TaktsRowChangeEvent(CType(e.Row,TaktsRow), e.Action))
+            If (Not (Me.operRowChangingEvent) Is Nothing) Then
+                RaiseEvent operRowChanging(Me, New operRowChangeEvent(CType(e.Row,operRow), e.Action))
             End If
         End Sub
         
@@ -485,8 +467,8 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.TaktsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent TaktsRowDeleted(Me, New TaktsRowChangeEvent(CType(e.Row,TaktsRow), e.Action))
+            If (Not (Me.operRowDeletedEvent) Is Nothing) Then
+                RaiseEvent operRowDeleted(Me, New operRowChangeEvent(CType(e.Row,operRow), e.Action))
             End If
         End Sub
         
@@ -494,14 +476,14 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.TaktsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent TaktsRowDeleting(Me, New TaktsRowChangeEvent(CType(e.Row,TaktsRow), e.Action))
+            If (Not (Me.operRowDeletingEvent) Is Nothing) Then
+                RaiseEvent operRowDeleting(Me, New operRowChangeEvent(CType(e.Row,operRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveTaktsRow(ByVal row As TaktsRow)
+        Public Sub RemoveoperRow(ByVal row As operRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -528,7 +510,7 @@ Partial Public Class DataSet1
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "TaktsDataTable"
+            attribute2.FixedValue = "operDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -575,26 +557,30 @@ Partial Public Class DataSet1
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class TaktsRow
+    Partial Public Class operRow
         Inherits Global.System.Data.DataRow
         
-        Private tableTakts As TaktsDataTable
+        Private tableoper As operDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableTakts = CType(Me.Table,TaktsDataTable)
+            Me.tableoper = CType(Me.Table,operDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ID() As Integer
+        Public Property orerat() As String
             Get
-                Return CType(Me(Me.tableTakts.IDColumn),Integer)
+                Try 
+                    Return CType(Me(Me.tableoper.oreratColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'orerat' в таблице 'oper' равно DBNull.", e)
+                End Try
             End Get
             Set
-                Me(Me.tableTakts.IDColumn) = value
+                Me(Me.tableoper.oreratColumn) = value
             End Set
         End Property
         
@@ -603,80 +589,65 @@ Partial Public Class DataSet1
         Public Property datetime() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableTakts.datetimeColumn),Date)
+                    Return CType(Me(Me.tableoper.datetimeColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'datetime' в таблице 'Takts' равно DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'datetime' в таблице 'oper' равно DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTakts.datetimeColumn) = value
+                Me(Me.tableoper.datetimeColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property t() As Integer
+        Public Property takt() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableTakts.tColumn),Integer)
+                    Return CType(Me(Me.tableoper.taktColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 't' в таблице 'Takts' равно DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'takt' в таблице 'oper' равно DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTakts.tColumn) = value
+                Me(Me.tableoper.taktColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property operat() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableTakts.operatColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'operat' в таблице 'Takts' равно DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTakts.operatColumn) = value
-            End Set
-        End Property
+        Public Function IsoreratNull() As Boolean
+            Return Me.IsNull(Me.tableoper.oreratColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetoreratNull()
+            Me(Me.tableoper.oreratColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsdatetimeNull() As Boolean
-            Return Me.IsNull(Me.tableTakts.datetimeColumn)
+            Return Me.IsNull(Me.tableoper.datetimeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetdatetimeNull()
-            Me(Me.tableTakts.datetimeColumn) = Global.System.Convert.DBNull
+            Me(Me.tableoper.datetimeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IstNull() As Boolean
-            Return Me.IsNull(Me.tableTakts.tColumn)
+        Public Function IstaktNull() As Boolean
+            Return Me.IsNull(Me.tableoper.taktColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SettNull()
-            Me(Me.tableTakts.tColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsoperatNull() As Boolean
-            Return Me.IsNull(Me.tableTakts.operatColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetoperatNull()
-            Me(Me.tableTakts.operatColumn) = Global.System.Convert.DBNull
+        Public Sub SettaktNull()
+            Me(Me.tableoper.taktColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -684,16 +655,16 @@ Partial Public Class DataSet1
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class TaktsRowChangeEvent
+    Public Class operRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As TaktsRow
+        Private eventRow As operRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As TaktsRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As operRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -701,7 +672,7 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As TaktsRow
+        Public ReadOnly Property Row() As operRow
             Get
                 Return Me.eventRow
             End Get
@@ -728,7 +699,7 @@ Namespace DataSet1TableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class TaktsTableAdapter
+    Partial Public Class operTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -845,11 +816,10 @@ Namespace DataSet1TableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Takts"
-            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.DataSetTable = "oper"
+            tableMapping.ColumnMappings.Add("orerat", "orerat")
             tableMapping.ColumnMappings.Add("datetime", "datetime")
-            tableMapping.ColumnMappings.Add("t", "t")
-            tableMapping.ColumnMappings.Add("operat", "operat")
+            tableMapping.ColumnMappings.Add("takt", "takt")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -857,7 +827,7 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.WindowsApplication3.My.MySettings.Default._194ConnectionString
+            Me._connection.ConnectionString = Global.WindowsApplication3.My.MySettings.Default._194ConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -866,37 +836,22 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Takts.ID, Takts.datetime, Takts.t, operat.operat "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            "& _ 
-                "Takts INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         operat ON Takts.oper = operat.Num"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
-                "ERE        (Takts.datetime BETWEEN @d1 AND @d2) AND (Takts.oper = @k)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY "& _ 
-                " Takts.datetime"
+            Me._commandCollection(0).CommandText = "SELECT orerat, datetime, takt FROM dbo.oper(@d1, @d2, @op)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d1", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "datetime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d2", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "datetime", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@k", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "oper", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d1", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d2", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@op", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.TaktsDataTable, ByVal d1 As Global.System.Nullable(Of Date), ByVal d2 As Global.System.Nullable(Of Date), ByVal k As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet1.operDataTable, ByVal d1 As Date, ByVal d2 As Date, ByVal op As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (d1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(d1.Value,Date)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (d2.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(d2.Value,Date)
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (k.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(k.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(d1,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(d2,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(op,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -908,24 +863,12 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal d1 As Global.System.Nullable(Of Date), ByVal d2 As Global.System.Nullable(Of Date), ByVal k As Global.System.Nullable(Of Integer)) As DataSet1.TaktsDataTable
+        Public Overloads Overridable Function GetData(ByVal d1 As Date, ByVal d2 As Date, ByVal op As Integer) As DataSet1.operDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (d1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(d1.Value,Date)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (d2.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(d2.Value,Date)
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (k.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(k.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            Dim dataTable As DataSet1.TaktsDataTable = New DataSet1.TaktsDataTable()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(d1,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(d2,Date)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(op,Integer)
+            Dim dataTable As DataSet1.operDataTable = New DataSet1.operDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
