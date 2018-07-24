@@ -154,7 +154,7 @@ Partial Class Form1
         '
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
-        Me.ListBox1.Items.AddRange(New Object() {"Общий отчет", "Сводка по операции", "Простои", "Простои по службам"})
+        Me.ListBox1.Items.AddRange(New Object() {"Общий отчет", "Сводка по операции", "Простои"})
         Me.ListBox1.Location = New System.Drawing.Point(628, 69)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(203, 229)

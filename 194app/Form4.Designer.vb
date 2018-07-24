@@ -32,7 +32,8 @@ Partial Class Form4
         Me.DatetimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OperatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrichDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.F1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.F2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.F6BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Prostoy, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,7 +46,7 @@ Partial Class Form4
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DatetimeDataGridViewTextBoxColumn, Me.OperatDataGridViewTextBoxColumn, Me.TtDataGridViewTextBoxColumn, Me.PrichDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DatetimeDataGridViewTextBoxColumn, Me.OperatDataGridViewTextBoxColumn, Me.TtDataGridViewTextBoxColumn, Me.F1, Me.F2})
         Me.DataGridView1.DataSource = Me.F6BindingSource
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
@@ -95,13 +96,20 @@ Partial Class Form4
         Me.TtDataGridViewTextBoxColumn.ReadOnly = True
         Me.TtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
-        'PrichDataGridViewTextBoxColumn
+        'F1
         '
-        Me.PrichDataGridViewTextBoxColumn.DataPropertyName = "prich"
-        Me.PrichDataGridViewTextBoxColumn.HeaderText = "Причина"
-        Me.PrichDataGridViewTextBoxColumn.Name = "PrichDataGridViewTextBoxColumn"
-        Me.PrichDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PrichDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.F1.DataPropertyName = "F1"
+        Me.F1.HeaderText = "Код"
+        Me.F1.Name = "F1"
+        Me.F1.ReadOnly = True
+        '
+        'F2
+        '
+        Me.F2.DataPropertyName = "F2"
+        Me.F2.HeaderText = "Причина"
+        Me.F2.Name = "F2"
+        Me.F2.ReadOnly = True
+        Me.F2.Width = 300
         '
         'Form4
         '
@@ -123,8 +131,10 @@ Partial Class Form4
     Friend WithEvents Prostoy As _194DataSet
     Friend WithEvents F6TableAdapter As _194DataSetTableAdapters.f6TableAdapter
     Friend WithEvents F6BindingSource As BindingSource
+    Friend WithEvents PrichDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DatetimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents OperatDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PrichDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents F1 As DataGridViewTextBoxColumn
+    Friend WithEvents F2 As DataGridViewTextBoxColumn
 End Class
