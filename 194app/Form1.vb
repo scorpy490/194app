@@ -3,8 +3,8 @@
         'TODO: данная строка кода позволяет загрузить данные в таблицу "_194DataSet1.operat". При необходимости она может быть перемещена или удалена.
         Me.OperatTableAdapter.Fill(Me.operat.operat)
         Dim days = Microsoft.VisualBasic.DateAndTime.Day(Now)
-        Me.Date1.Value = DateSerial(Year(Now), Month(Now), (Now).Day).AddHours(8).AddMinutes(0)
-        Me.Date2.Value = DateSerial(Year(Now), Month(Now), (Now).Day).AddHours(20).AddMinutes(0)
+        Me.Date1.Value = DateSerial(Year(Now), Month(Now), (Now).Day).AddHours(7).AddMinutes(30)
+        Me.Date2.Value = DateSerial(Year(Now), Month(Now), (Now).Day).AddHours(19).AddMinutes(30)
         Me.ListBox1.SelectedIndex = 0
         Me.Update()
         'Date2.Refresh()
@@ -52,12 +52,12 @@
         Me.Date1.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), daysk)
         Me.Date2.Value = Me.Date1.Value
         If Me.RadioButton1.Checked = True Then
-            Date1.Value = Me.Date1.Value.AddHours(8)
+            Date1.Value = Me.Date1.Value.AddHours(7).AddMinutes(30)
             Me.Date2.Value = DateSerial(Year(Me.Date2.Value), Month(Me.Date2.Value), daysk)
-            Date2.Value = Date2.Value.AddHours(20)
+            Date2.Value = Date2.Value.AddHours(19).AddMinutes(30)
         Else
-            Date1.Value = Date1.Value.AddHours(20)
-            Date2.Value = Date2.Value.AddHours(8)
+            Date1.Value = Date1.Value.AddHours(19).AddMinutes(30)
+            Date2.Value = Date2.Value.AddHours(7).AddMinutes(30).AddDays(1)
         End If
         Me.Date1.Value = t1(Me.Date1.Value).AddSeconds(2)
         Me.Date2.Value = t1(Me.Date2.Value).AddSeconds(1)
@@ -68,11 +68,11 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click, Date1.CloseUp, RadioButton2.CheckedChanged, RadioButton1.CheckedChanged
         'Dim days = Microsoft.VisualBasic.DateAndTime.Day(Me.Date1.Value)
         If Me.RadioButton1.Checked = True Then
-            Me.Date1.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(8).AddMinutes(0)
-            Me.Date2.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(20).AddMinutes(0)
+            Me.Date1.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(7).AddMinutes(30)
+            Me.Date2.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(19).AddMinutes(30)
         Else
-            Me.Date1.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(20).AddMinutes(0)
-            Me.Date2.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day + 1).AddHours(8).AddMinutes(0)
+            Me.Date1.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day).AddHours(19).AddMinutes(30)
+            Me.Date2.Value = DateSerial(Year(Me.Date1.Value), Month(Me.Date1.Value), Me.Date1.Value.Day + 1).AddHours(7).AddMinutes(30)
 
         End If
         Me.Date1.Value = t1(Me.Date1.Value)
@@ -132,5 +132,9 @@
 
     Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
         Me.ListBox1.SelectedIndex = 1
+    End Sub
+
+    Private Sub ListBox1_Click(sender As Object, e As EventArgs) Handles ListBox1.Click
+        If Me.ListBox1.SelectedIndex = 1 Then ComboBox1.Visible = True Else ComboBox1.Visible = False
     End Sub
 End Class

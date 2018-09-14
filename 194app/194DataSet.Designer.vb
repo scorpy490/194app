@@ -3991,6 +3991,8 @@ Partial Public Class _194DataSet
         
         Private columnF2 As Global.System.Data.DataColumn
         
+        Private columnnotes As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4067,6 +4069,14 @@ Partial Public Class _194DataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property notesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4103,9 +4113,9 @@ Partial Public Class _194DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function Addf6Row(ByVal datetime As Date, ByVal operat As String, ByVal tt As Integer, ByVal F1 As String, ByVal F2 As String) As f6Row
+        Public Overloads Function Addf6Row(ByVal datetime As Date, ByVal operat As String, ByVal tt As Integer, ByVal F1 As String, ByVal F2 As String, ByVal notes As String) As f6Row
             Dim rowf6Row As f6Row = CType(Me.NewRow,f6Row)
-            Dim columnValuesArray() As Object = New Object() {datetime, operat, tt, F1, F2}
+            Dim columnValuesArray() As Object = New Object() {datetime, operat, tt, F1, F2, notes}
             rowf6Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowf6Row)
             Return rowf6Row
@@ -4133,6 +4143,7 @@ Partial Public Class _194DataSet
             Me.columntt = MyBase.Columns("tt")
             Me.columnF1 = MyBase.Columns("F1")
             Me.columnF2 = MyBase.Columns("F2")
+            Me.columnnotes = MyBase.Columns("notes")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4148,9 +4159,12 @@ Partial Public Class _194DataSet
             MyBase.Columns.Add(Me.columnF1)
             Me.columnF2 = New Global.System.Data.DataColumn("F2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnF2)
+            Me.columnnotes = New Global.System.Data.DataColumn("notes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnotes)
             Me.columnoperat.MaxLength = 50
             Me.columnF1.MaxLength = 12
             Me.columnF2.MaxLength = 100
+            Me.columnnotes.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9035,6 +9049,21 @@ Partial Public Class _194DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property notes() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablef6.notesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Значение для столбца 'notes' в таблице 'f6' равно DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablef6.notesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsdatetimeNull() As Boolean
             Return Me.IsNull(Me.tablef6.datetimeColumn)
         End Function
@@ -9091,6 +9120,18 @@ Partial Public Class _194DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetF2Null()
             Me(Me.tablef6.F2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsnotesNull() As Boolean
+            Return Me.IsNull(Me.tablef6.notesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetnotesNull()
+            Me(Me.tablef6.notesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10641,6 +10682,7 @@ Namespace _194DataSetTableAdapters
             tableMapping.ColumnMappings.Add("tt", "tt")
             tableMapping.ColumnMappings.Add("F1", "F1")
             tableMapping.ColumnMappings.Add("F2", "F2")
+            tableMapping.ColumnMappings.Add("notes", "notes")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         

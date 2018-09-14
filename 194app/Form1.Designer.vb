@@ -120,11 +120,12 @@ Partial Class Form1
         Me.ComboBox1.DataSource = Me.OperatBindingSource
         Me.ComboBox1.DisplayMember = "operat"
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(30, 211)
+        Me.ComboBox1.Location = New System.Drawing.Point(313, 78)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(233, 23)
         Me.ComboBox1.TabIndex = 12
         Me.ComboBox1.ValueMember = "Num"
+        Me.ComboBox1.Visible = False
         '
         'OperatBindingSource
         '

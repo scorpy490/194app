@@ -23,20 +23,20 @@ Partial Class Form4
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form4))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.F6BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Prostoy = New WindowsApplication3._194DataSet()
+        Me._194DataSet = New WindowsApplication3._194DataSet()
         Me.F6TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f6TableAdapter()
+        Me.F6BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DatetimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OperatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.F1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.F2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._194DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.F6BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Prostoy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -46,47 +46,42 @@ Partial Class Form4
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DatetimeDataGridViewTextBoxColumn, Me.OperatDataGridViewTextBoxColumn, Me.TtDataGridViewTextBoxColumn, Me.F1, Me.F2})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DatetimeDataGridViewTextBoxColumn, Me.OperatDataGridViewTextBoxColumn, Me.TtDataGridViewTextBoxColumn, Me.F1, Me.F2, Me.notes})
         Me.DataGridView1.DataSource = Me.F6BindingSource
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(976, 488)
+        Me.DataGridView1.Size = New System.Drawing.Size(1184, 661)
         Me.DataGridView1.TabIndex = 0
         '
-        'F6BindingSource
+        '_194DataSet
         '
-        Me.F6BindingSource.DataMember = "f6"
-        Me.F6BindingSource.DataSource = Me.Prostoy
-        '
-        'Prostoy
-        '
-        Me.Prostoy.DataSetName = "Prostoy"
-        Me.Prostoy.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me._194DataSet.DataSetName = "_194DataSet"
+        Me._194DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'F6TableAdapter
         '
         Me.F6TableAdapter.ClearBeforeFill = True
         '
+        'F6BindingSource
+        '
+        Me.F6BindingSource.DataMember = "f6"
+        Me.F6BindingSource.DataSource = Me._194DataSet
+        '
         'DatetimeDataGridViewTextBoxColumn
         '
         Me.DatetimeDataGridViewTextBoxColumn.DataPropertyName = "datetime"
-        DataGridViewCellStyle1.Format = "G"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.DatetimeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.DatetimeDataGridViewTextBoxColumn.HeaderText = "Дата и время"
         Me.DatetimeDataGridViewTextBoxColumn.Name = "DatetimeDataGridViewTextBoxColumn"
         Me.DatetimeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DatetimeDataGridViewTextBoxColumn.Width = 150
         '
         'OperatDataGridViewTextBoxColumn
         '
         Me.OperatDataGridViewTextBoxColumn.DataPropertyName = "operat"
-        Me.OperatDataGridViewTextBoxColumn.HeaderText = "Операции"
+        Me.OperatDataGridViewTextBoxColumn.HeaderText = "Операция"
         Me.OperatDataGridViewTextBoxColumn.Name = "OperatDataGridViewTextBoxColumn"
         Me.OperatDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OperatDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'TtDataGridViewTextBoxColumn
         '
@@ -94,7 +89,6 @@ Partial Class Form4
         Me.TtDataGridViewTextBoxColumn.HeaderText = "Простой"
         Me.TtDataGridViewTextBoxColumn.Name = "TtDataGridViewTextBoxColumn"
         Me.TtDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'F1
         '
@@ -111,30 +105,39 @@ Partial Class Form4
         Me.F2.ReadOnly = True
         Me.F2.Width = 300
         '
+        'notes
+        '
+        Me.notes.DataPropertyName = "notes"
+        Me.notes.HeaderText = "Примечание"
+        Me.notes.Name = "notes"
+        Me.notes.ReadOnly = True
+        Me.notes.Width = 250
+        '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(976, 488)
+        Me.ClientSize = New System.Drawing.Size(1184, 661)
         Me.Controls.Add(Me.DataGridView1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form4"
         Me.Text = "Form4"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._194DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.F6BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Prostoy, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Prostoy As _194DataSet
+    Friend WithEvents PrichDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents _194DataSet As _194DataSet
     Friend WithEvents F6TableAdapter As _194DataSetTableAdapters.f6TableAdapter
     Friend WithEvents F6BindingSource As BindingSource
-    Friend WithEvents PrichDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DatetimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents OperatDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents F1 As DataGridViewTextBoxColumn
     Friend WithEvents F2 As DataGridViewTextBoxColumn
+    Friend WithEvents notes As DataGridViewTextBoxColumn
 End Class

@@ -278,6 +278,7 @@
               <Mapping SourceColumn="tt" DataSetColumn="tt" />
               <Mapping SourceColumn="F1" DataSetColumn="F1" />
               <Mapping SourceColumn="F2" DataSetColumn="F2" />
+              <Mapping SourceColumn="notes" DataSetColumn="notes" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -545,6 +546,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="F2" msprop:Generator_ColumnVarNameInTable="columnF2" msprop:Generator_ColumnPropNameInRow="F2" msprop:Generator_ColumnPropNameInTable="F2Column" msprop:Generator_UserColumnName="F2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="notes" msprop:Generator_ColumnVarNameInTable="columnnotes" msprop:Generator_ColumnPropNameInRow="notes" msprop:Generator_ColumnPropNameInTable="notesColumn" msprop:Generator_UserColumnName="notes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
