@@ -127,6 +127,12 @@
                 Dim NewMDIChild As New Form5()
                 NewMDIChild.MdiParent = Form_main
                 NewMDIChild.Show()
+            Case 4
+                Dim NewMDIChild As New Form2t()
+                'Set the parent form of the child window.
+                NewMDIChild.MdiParent = Form_main
+                'Display the new form.
+                NewMDIChild.Show()
         End Select
     End Sub
 

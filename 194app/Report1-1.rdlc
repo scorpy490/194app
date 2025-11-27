@@ -167,7 +167,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>_194DataSet</rd:DataSetName>
-        <rd:SchemaPath>d:\Profile\documents\visual studio 2015\Projects\194app\194app\194DataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Profile\Documents\Visual Studio 2015\Projects\194app\194app\194DataSet.xsd</rd:SchemaPath>
         <rd:TableName>f1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -30,7 +30,6 @@ Partial Class Form2
         Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.F1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me._194DataSet = New WindowsApplication3._194DataSet()
         Me.F2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -38,12 +37,15 @@ Partial Class Form2
         Me.F4BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.F5BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.F6BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.F1TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f1TableAdapter()
         Me.F2TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f2TableAdapter()
         Me.F3TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f3TableAdapter()
         Me.F4TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f4TableAdapter()
         Me.F5TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f5TableAdapter()
         Me.F6TableAdapter = New WindowsApplication3._194DataSetTableAdapters.f6TableAdapter()
+        Me.F6TableAdapter1 = New WindowsApplication3._194DataSet1TableAdapters.f6TableAdapter()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.F1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me._194DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.F2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,38 +54,6 @@ Partial Class Form2
         CType(Me.F5BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.F6BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReportViewer1.DocumentMapWidth = 50
-        Me.ReportViewer1.IsDocumentMapWidthFixed = True
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.F1BindingSource
-        ReportDataSource2.Name = "DataSet2"
-        ReportDataSource2.Value = Me.F2BindingSource
-        ReportDataSource3.Name = "DataSet3"
-        ReportDataSource3.Value = Me.F3BindingSource
-        ReportDataSource4.Name = "DataSet4"
-        ReportDataSource4.Value = Me.F4BindingSource
-        ReportDataSource5.Name = "DataSet5"
-        ReportDataSource5.Value = Me.F5BindingSource
-        ReportDataSource6.Name = "DataSet6"
-        ReportDataSource6.Value = Me.F6BindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "WindowsApplication3.Report1.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(1)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ShowFindControls = False
-        Me.ReportViewer1.Size = New System.Drawing.Size(1452, 658)
-        Me.ReportViewer1.TabIndex = 0
-        Me.ReportViewer1.ZoomPercent = 150
         '
         'F1BindingSource
         '
@@ -120,6 +90,39 @@ Partial Class Form2
         Me.F6BindingSource.DataMember = "f6"
         Me.F6BindingSource.DataSource = Me._194DataSet
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.DocumentMapWidth = 50
+        Me.ReportViewer1.IsDocumentMapWidthFixed = True
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.F1BindingSource
+        ReportDataSource2.Name = "DataSet2"
+        ReportDataSource2.Value = Me.F2BindingSource
+        ReportDataSource3.Name = "DataSet3"
+        ReportDataSource3.Value = Me.F3BindingSource
+        ReportDataSource4.Name = "DataSet4"
+        ReportDataSource4.Value = Me.F4BindingSource
+        ReportDataSource5.Name = "DataSet5"
+        ReportDataSource5.Value = Me.F5BindingSource
+        ReportDataSource6.Name = "DataSet6"
+        ReportDataSource6.Value = Me.F6BindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "WindowsApplication3.Report1.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Margin = New System.Windows.Forms.Padding(1)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.ShowFindControls = False
+        Me.ReportViewer1.Size = New System.Drawing.Size(1452, 658)
+        Me.ReportViewer1.TabIndex = 0
+        Me.ReportViewer1.ZoomPercent = 150
+        '
         'F1TableAdapter
         '
         Me.F1TableAdapter.ClearBeforeFill = True
@@ -143,6 +146,10 @@ Partial Class Form2
         'F6TableAdapter
         '
         Me.F6TableAdapter.ClearBeforeFill = True
+        '
+        'F6TableAdapter1
+        '
+        Me.F6TableAdapter1.ClearBeforeFill = True
         '
         'Form2
         '
@@ -179,4 +186,6 @@ Partial Class Form2
     Friend WithEvents F5TableAdapter As _194DataSetTableAdapters.f5TableAdapter
     Friend WithEvents F6BindingSource As BindingSource
     Friend WithEvents F6TableAdapter As _194DataSetTableAdapters.f6TableAdapter
+    Friend WithEvents F6TableAdapter1 As _194DataSet1TableAdapters.f6TableAdapter
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class
